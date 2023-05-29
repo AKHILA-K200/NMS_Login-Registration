@@ -1,0 +1,162 @@
+::ng-deep
+{
+.p-tabmenu {
+    margin-left: 8%;
+   
+}
+.p-tabmenu-nav .p-menuitem-text{
+    padding-right: 10px;
+}
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem.p-highlight .p-menuitem-link {
+    background: #ffffff;
+    border-color: #3BBCA0;
+    color: #3BBCA0;
+}
+.p-tabmenu .p-tabmenu-nav .p-tabmenuitem .p-menuitem-link{
+    color: #dcdbdb;
+}
+} 
+
+.header_selected{
+    font-size: 1rem;
+    font-weight: 700;
+    margin-top: 2%;
+    margin-left: 8%;
+}
+
+.tb_contents{
+   margin-left: 3%;
+
+    .tb_row{
+       display: flex;
+       flex-direction: row;
+       margin-top: 1.5%;
+
+            .p-field{
+                display: flex;
+                flex-direction: column;
+                gap: 0.3rem;
+                margin-left: 5%;
+
+                .tb_contents_heading{
+                    
+                }
+                
+                ::ng-deep {
+                .p-input{
+                    height: 2.2rem;
+                }
+              
+                ::ng-deep{
+                    .p-calendar{
+                        height: 2.2rem;
+
+                    }
+                }
+                .subsection{
+                    display: flex;
+                    gap: 1rem;
+                    ::ng-deep {
+                    .p-dropdown{
+                        width: 6rem;
+                        height: 2.2rem;
+
+                    }
+                }
+                .p-input-small{
+                    width: 6rem;
+                    height: 2.2rem;
+
+                }
+
+                }
+
+                .pInputTextarea{
+              
+                }
+                ::ng-deep {
+                    .p-dropdown{
+                 width:13rem;
+                 height: 2.2rem;
+
+                    }
+                    .p-dropdown-label{
+                        text-align: center;
+                    }
+
+                 }
+                 
+
+              
+            }
+           
+
+            
+        }
+        .combined_section{
+            margin-left: 3%;
+            .tb_row{
+                display: flex;
+                flex-direction: row;
+                gap:2rem;
+                     .p-field{
+                         display: flex;
+                         flex-direction: column;
+                         gap: 0.3rem;
+                         margin-left: 5%;
+                         .tb_contents_heading{
+                         }
+                         
+                         ::ng-deep {
+                         .p-input{
+                            height: 2.2rem;
+
+                         }
+                         ::ng-deep {
+                            .p-dropdown{
+                                height: 2.2rem;
+                                width:13rem;
+                               // text-align:center;
+                               
+                            }
+                            .p-dropdown-label{
+                                //display: inline-block;
+                                text-align: center;
+                            }
+                            .p-icon {
+                                text-align: center;
+
+                                //display: inline-block;
+                            }
+                         }
+                        
+                       
+                     }
+                    
+         
+                     
+                 }         
+        }
+       
+    }
+}
+.submit-section{
+    display: flex;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+    gap:1rem;
+
+            ::ng-deep {
+                .p-button .submit{
+                    background-color: #3BBCA0;
+                }
+                }
+          
+        ::ng-deep {
+            .p-button-outlined .p-button-success{
+    
+            }
+        }
+}
+}

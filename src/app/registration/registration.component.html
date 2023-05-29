@@ -1,0 +1,240 @@
+<p-tabMenu [model]="items" [activeItem]="activeItem" class="p-tabmenu"></p-tabMenu>
+
+<div class="header_selected">
+    Profile
+</div>
+<form [formGroup]="registrationForm">
+    <div class="tb_contents">
+        <div class="tb_row"> 
+          
+                <div class="p-field">
+                    <label for="username2" class="tb_contents_heading">First Name</label>
+                    <input id="username2" type="username" aria-describedby="username2-help" class="p-input" formControlName="fcn_firstName"  pInputText />
+
+                    <div *ngIf="registrationForm.controls.fcn_firstName.invalid && registrationForm.controls.fcn_firstName.touched" >
+                        <small class="p-error">Please Enter a Valid Name</small>
+                    </div>
+                </div>
+                <div class="p-field">
+                    <label for="username2" class="tb_contents_heading">Last Name</label>
+                    <input id="username2" type="username" aria-describedby="username2-help" class="p-input" formControlName="fcn_lastName" pInputText />
+
+                    <div *ngIf="registrationForm.controls.fcn_lastName.invalid && registrationForm.controls.fcn_lastName.touched" >
+                        <small class="p-error">Please Enter a Valid Last Name</small>
+                    </div>
+                </div>
+
+                <div class="p-field">
+                    <label for="username2" class="tb_contents_heading">Date Of Birth</label>
+                    <p-calendar  formControlName="fcn_dob"  class="p-calendar" inputId="basic" ></p-calendar>
+
+                    <!-- <div *ngIf="registrationForm.controls.fcn_dob.invalid && registrationForm.controls.fcn_dob.touched" >
+                        <small class="p-error">Please Select your Date of Birth</small>
+                    </div> -->
+                </div>
+                <div class="p-field">
+                    <label for="username2" class="tb_contents_heading" >Gender</label>
+                    <p-dropdown [options]="gender"  optionLabel="option" class="p-dropdown" formControlName="fcn_gender"  ></p-dropdown>
+                    <!-- <div *ngIf="registrationForm.controls.fcn_gender.invalid && registrationForm.controls.fcn_gender.touched" >
+                        <small class="p-error">Please Select a Gender</small>
+                    </div> -->
+                </div>
+              
+        </div>
+
+        <div class="tb_row"> 
+          
+            <div class="p-field">
+                <label for="username2" class="tb_contents_heading">E-mail</label>
+                <input id="username2" type="username" aria-describedby="username2-help" class="p-input"  formControlName="fcn_email" pInputText />
+                <div *ngIf="registrationForm.controls.fcn_email.invalid && registrationForm.controls.fcn_email.touched ">
+                    <small *ngIf="registrationForm.controls.fcn_email.errors?.['required']" class="p-error">email is
+                        required</small>
+                    <small *ngIf="registrationForm.controls.fcn_email.errors?.['email']" class="p-error">Enter the
+                        correct email format</small>
+    
+                </div>
+            </div>
+            <div class="p-field">
+                <label for="username2" class="tb_contents_heading">Mobile</label>
+                <input id="username2" type="username" aria-describedby="username2-help" class="p-input" formControlName="fcn_mobile"   pInputText />
+                <div *ngIf="registrationForm.controls.fcn_mobile.invalid && registrationForm.controls.fcn_mobile.touched" >
+                    <small class="p-error">Please Enter the Phone number</small>
+                </div>
+            </div>
+
+            <div class="p-field">
+                <label for="username2" class="tb_contents_heading">Joining Date</label>
+                <p-calendar  formControlName="fcn_joiningDate" class="p-calendar" inputId="basic" ></p-calendar>
+
+               
+                <!-- <div *ngIf="registrationForm.controls.fcn_joiningDate.invalid && registrationForm.controls.fcn_joiningDate.touched" >
+                    <small class="p-error">Please Select the Joining Date</small>
+                </div> -->
+           
+            </div>
+            <div class="p-field">
+                <label for="username2" class="tb_contents_heading">Employee Code</label>
+                <div class="subsection"> 
+                     <p-dropdown [options]="empcode_drplist" formControlName="fcn_empcode"  (onChange)="getempcode()" [(ngModel)]="selectedOption" optionLabel="name" class="p-dropdown"></p-dropdown>
+                    <input readonly formControlName="fcn_empcno" id="username2" type="username" aria-describedby="username2-help" class="p-input-small" pInputText />
+                </div>
+
+              
+                <div *ngIf="registrationForm.controls.fcn_empcode.invalid && registrationForm.controls.fcn_empcode.touched" >
+                    <small class="p-error">Please Select the Employee Code</small>
+                </div>
+                  
+            </div>
+          
+        </div>
+
+        <div class="tb_row"> 
+          
+            <div class="p-field">
+                <label for="username2" class="tb_contents_heading">Address</label>
+
+                <textarea  formControlName="fcn_address" rows="10 " cols="25" pInputTextarea autoResize="autoResize" class="pInputTextarea"></textarea>
+                <!-- <div *ngIf="registrationForm.controls.fcn_address.invalid && registrationForm.controls.fcn_address.touched" >
+                    <small class="p-error">Please Enter Your Address</small>
+                </div> -->
+            </div>
+            <div class="combined_section">
+                <div class="tb_row">
+                    <div class="p-field">
+                        <label for="username2" class="tb_contents_heading">Employemnet Type</label>
+                        <p-dropdown [options]="employmenttype"  optionLabel="option" formControlName="fcn_emptype" ></p-dropdown>    
+                   
+                        <!-- <div *ngIf="registrationForm.controls.fcn_emptype.invalid && registrationForm.controls.fcn_emptype.touched" >
+                            <small class="p-error">Please Select the Employee Type</small>
+                        </div> -->
+                    </div>
+
+                    <div class="p-field">
+                        <label for="username2" class="tb_contents_heading">Designation</label>
+                        <p-dropdown [options]="designation"  optionLabel="option" formControlName="fcn_designation"  ></p-dropdown> 
+                        <!-- <div *ngIf="registrationForm.controls.fcn_designation.invalid && registrationForm.controls.fcn_designation.touched" >
+                            <small class="p-error">Please Select the designation</small>
+                        </div> -->
+                    </div>
+                    <div class="p-field">
+                        <label for="username2" class="tb_contents_heading">Department</label>
+                        <p-dropdown [options]="department" optionLabel="option"  formControlName="fcn_department" > </p-dropdown>
+                    </div>
+
+                    <div *ngIf="registrationForm.controls.fcn_department.invalid && registrationForm.controls.fcn_department.touched" >
+                        <small class="p-error">Please Select the Department</small>
+                    </div>
+                </div>
+
+
+                <div class="tb_row">
+                    
+                    <div class="p-field">
+                        <label for="username2" class="tb_contents_heading">Project</label>
+                        <p-dropdown [options]="project"  optionLabel="option" formControlName="fcn_project" ></p-dropdown> 
+                    
+                        <!-- <div *ngIf="registrationForm.controls.fcn_project.invalid && registrationForm.controls.fcn_project.touched" >
+                            <small class="p-error">Please Select the Project</small>
+                        </div> -->
+                    </div>
+                    <div class="p-field">
+                        <label for="username2" class="tb_contents_heading">Buddy</label>
+                        <p-dropdown  formControlName="fcn_buddy"  [options]="buddy"  optionLabel="name" ></p-dropdown> 
+                        <!-- <div *ngIf="registrationForm.controls.fcn_buddy.invalid && registrationForm.controls.fcn_buddy.touched" >
+                            <small class="p-error">Please Select you buddy name</small>
+                        </div> -->
+                    </div>
+                    <div class="p-field">
+                        <label for="username2" class="tb_contents_heading">Manager</label>
+                        <p-dropdown  formControlName="fcn_manager" [options]="Config"  optionLabel="option"></p-dropdown> 
+                        <!-- <div *ngIf="registrationForm.controls.fcn_manager.invalid && registrationForm.controls.fcn_manager.touched" >
+                            <small class="p-error">Please Select you manager name</small>
+                        </div>  -->
+                    </div>
+                </div>
+            </div>
+  
+          
+        </div>
+        <div class="tb_row"> 
+          
+            <div class="p-field">
+                <label for="username2" class="tb_contents_heading">Probation Status</label>
+                <p-dropdown formControlName="fcn_prbstatus" [options]="probationstatus"  optionLabel="option" class="p-dropdown" ></p-dropdown>
+                <!-- <div *ngIf="registrationForm.controls.fcn_prbstatus.invalid && registrationForm.controls.fcn_prbstatus.touched" >
+                    <small class="p-error">Please Select your current probation status</small>
+                </div> -->
+            </div>
+            <div class="p-field">
+                <label for="username2" class="tb_contents_heading">Probation Period</label>
+                <p-dropdown formControlName="fcn_probperiod"  [options]="probationperiod"  optionLabel="option" class="p-dropdown" ></p-dropdown>
+                <!-- <div *ngIf="registrationForm.controls.fcn_probperiod.invalid && registrationForm.controls.fcn_probperiod.touched" >
+                    <small class="p-error">Please Select your probation period</small>
+                </div> -->
+            </div>
+
+            <div class="p-field">
+                <label for="username2" class="tb_contents_heading">Work Status</label>
+                <p-dropdown formControlName="fcn_workstatus"  [options]="workstatus"  optionLabel="option" class="p-dropdown" ></p-dropdown>
+                <!-- <div *ngIf="registrationForm.controls.fcn_workstatus.invalid && registrationForm.controls.fcn_workstatus.touched" >
+                    <small class="p-error">Please Select your current work status</small>
+                </div> -->
+            
+            </div>
+            <div class="p-field">
+                <label for="username2" class="tb_contents_heading">Salary</label>
+                <input formControlName="fcn_salary" id="username2" type="username" aria-describedby="username2-help" class="p-input" pInputText />
+                <!-- <div *ngIf="registrationForm.controls.fcn_salary.invalid && registrationForm.controls.fcn_salary.touched" >
+                    <small class="p-error">Please Select your current salary</small>
+                </div> -->
+            </div>
+          
+        </div>
+
+
+        <div class="tb_row"> 
+          
+            <div class="p-field">
+                <label for="username2" class="tb_contents_heading">Daily Work Hours</label>
+                <input formControlName="fcn_Dwrkhours"id="username2" type="username" aria-describedby="username2-help" class="p-input" pInputText />
+                <!-- <div *ngIf="registrationForm.controls.fcn_Dwrkhours.invalid && registrationForm.controls.fcn_Dwrkhours.touched" >
+                    <small class="p-error">Please Enter your daily working hours</small>
+                </div> -->
+            </div>
+            <div class="p-field">
+                <label for="username2" class="tb_contents_heading">Weekly Work ours</label>
+                <input formControlName="fcn_wwrkhour"  id="username2" type="username" aria-describedby="username2-help" class="p-input" pInputText />
+                <!-- <div *ngIf="registrationForm.controls.fcn_wwrkhour.invalid && registrationForm.controls.fcn_wwrkhour.touched" >
+                    <small class="p-error">Please Enter your total weekly working hours</small>
+                </div> -->
+            </div>
+
+            <div class="p-field">
+                <label for="username2" class="tb_contents_heading">PAN Number</label>
+                <input formControlName="fcn_pan"id="username2" type="username" aria-describedby="username2-help" class="p-input" pInputText />
+                <!-- <div *ngIf="registrationForm.controls.fcn_pan.invalid && registrationForm.controls.fcn_pan.touched" >
+                    <small class="p-error">Please Enter your PAN card Number</small>
+                </div> -->
+            </div>
+            <div class="p-field">
+                <label for="username2" class="tb_contents_heading">Adhar Number</label>
+                <input formControlName="fcn_adhar" id="username2" type="username" aria-describedby="username2-help" class="p-input" pInputText />
+                <!-- <div *ngIf="registrationForm.controls.fcn_adhar.invalid && registrationForm.controls.fcn_adhar.touched" >
+                    <small class="p-error">Please Enter your Adhar card Number</small>
+                </div> -->
+            </div>
+          
+        </div>
+        <div class="submit-section">
+        <p-button  (click)="Onsubmit()"  label="Submit" class="submit"></p-button>
+        <button pButton pRipple type="button" label="Cancel" class="p-button-outlined p-button-success"></button>
+        </div>
+    </div>
+    </form>
+
+    <p-toast></p-toast>
+
+    <p-toast position="bottom-center" key="bc"></p-toast>    <!-- <router-outlet>
+        
+    </router-outlet> -->
