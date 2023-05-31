@@ -269,6 +269,7 @@ this.Config=res;
     fcn_wwrkhour:[''],
     fcn_pan:['ABCDE1234F'],
     fcn_adhar:['000000000000'],
+    submit:[]
     
   });
 

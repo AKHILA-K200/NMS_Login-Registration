@@ -35,9 +35,12 @@
                 <div class="p-field">
                     <label for="username2" class="tb_contents_heading" >Gender</label>
                     <p-dropdown [options]="gender"  optionLabel="option" class="p-dropdown" formControlName="fcn_gender"  ></p-dropdown>
-                    <!-- <div *ngIf="registrationForm.controls.fcn_gender.invalid && registrationForm.controls.fcn_gender.touched" >
+                    <div *ngIf="registrationForm.controls.fcn_gender.invalid && registrationForm.controls.fcn_gender.touched" >
                         <small class="p-error">Please Select a Gender</small>
-                    </div> -->
+                    </div>
+                     <div *ngIf="registrationForm.controls.submit.touched && registrationForm.controls.fcn_gender.untouched" >
+                        <small class="p-error">Please Select a Gender</small>
+                    </div>
                 </div>
               
         </div>
@@ -205,30 +208,24 @@
             <div class="p-field">
                 <label for="username2" class="tb_contents_heading">Weekly Work ours</label>
                 <input formControlName="fcn_wwrkhour"  id="username2" type="username" aria-describedby="username2-help" class="p-input" pInputText />
-                <!-- <div *ngIf="registrationForm.controls.fcn_wwrkhour.invalid && registrationForm.controls.fcn_wwrkhour.touched" >
-                    <small class="p-error">Please Enter your total weekly working hours</small>
-                </div> -->
+                
             </div>
 
             <div class="p-field">
                 <label for="username2" class="tb_contents_heading">PAN Number</label>
                 <input formControlName="fcn_pan"id="username2" type="username" aria-describedby="username2-help" class="p-input" pInputText />
-                <!-- <div *ngIf="registrationForm.controls.fcn_pan.invalid && registrationForm.controls.fcn_pan.touched" >
-                    <small class="p-error">Please Enter your PAN card Number</small>
-                </div> -->
+               
             </div>
             <div class="p-field">
                 <label for="username2" class="tb_contents_heading">Adhar Number</label>
                 <input formControlName="fcn_adhar" id="username2" type="username" aria-describedby="username2-help" class="p-input" pInputText />
-                <!-- <div *ngIf="registrationForm.controls.fcn_adhar.invalid && registrationForm.controls.fcn_adhar.touched" >
-                    <small class="p-error">Please Enter your Adhar card Number</small>
-                </div> -->
+              
             </div>
           
         </div>
         <div class="submit-section">
-        <p-button  (click)="Onsubmit()"  label="Submit" class="submit"></p-button>
-        <button pButton pRipple type="button" label="Cancel" class="p-button-outlined p-button-success"></button>
+        <p-button  (click)="Onsubmit()" formControlName="submit" label="Submit" class="submit"></p-button>
+        <button pButton pRipple type="button" label="Cancel" class="p-button-outlined"></button>
         </div>
     </div>
     </form>

@@ -1,7 +1,7 @@
 ::ng-deep
 {
 .p-tabmenu {
-    margin-left: 8%;
+    margin-left: 15%;
    
 }
 .p-tabmenu-nav .p-menuitem-text{
@@ -21,11 +21,11 @@
     font-size: 1rem;
     font-weight: 700;
     margin-top: 2%;
-    margin-left: 8%;
+    margin-left: 15%;
 }
 
 .tb_contents{
-   margin-left: 3%;
+   margin-left: 10%;
 
     .tb_row{
        display: flex;
@@ -148,8 +148,9 @@
     gap:1rem;
 
             ::ng-deep {
-                .p-button .submit{
+                .p-button {
                     background-color: #3BBCA0;
+                    border: 1px solid #3BBCA0;
                 }
                 }
           
